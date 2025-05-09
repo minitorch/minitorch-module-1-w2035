@@ -47,10 +47,21 @@ def neg(x :float):
     return -x
 
 def lt(x:float, y:float):
-    return x < y
+    if x < y:
+        return 1.0
+    else:
+        return 0.0
+
+def gt(x:float, y:float):
+    if x > y:
+        return 1.0
+    else:
+        return 0.0
 
 def eq(x: float, y :float):
-    return x == y
+    if x == y:
+        return 1.0
+    return 0.0
 
 def max(x :float, y :float):
     if x > y :
@@ -70,7 +81,7 @@ def sigmoid(x: float):
     
 # ReLU 激活函数
 def relu(x: float):
-    return max(0, x)
+    return max(0.0, x)
 
 
 
@@ -107,11 +118,11 @@ def inv_back(x:float, grad_output:float):
     return -grad_output / (x ** 2)
 
 # ReLU 的反向传播函数
-def relu_back(x:float, grad_output: float):
+def relu_back(x:float, grad_output: float) -> float:
     if x > 0:
         return grad_output
     else:
-        return 0
+        return 0.0
 
 # ## Task 0.3
 

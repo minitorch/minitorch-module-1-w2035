@@ -22,8 +22,21 @@ def central_difference(f: Any, *vals: Any, arg: int = 0, epsilon: float = 1e-6) 
     Returns:
         An approximation of $f'_i(x_0, \ldots, x_{n-1})$
     """
-    # TODO: Implement for Task 1.1.
-    raise NotImplementedError("Need to implement for Task 1.1")
+    # 创建一个列表，用于存储输入值
+    vals_list = list(vals)
+    
+    # 计算 f(x0, ..., xi + epsilon, ..., xn-1)
+    vals_list[arg] += epsilon
+    f_plus_epsilon = f(*vals_list)
+    
+    # 计算 f(x0, ..., xi - epsilon, ..., xn-1)
+    vals_list[arg] -= 2 * epsilon
+    f_minus_epsilon = f(*vals_list)
+    
+    # 计算中心差分公式
+    derivative = (f_plus_epsilon - f_minus_epsilon) / (2 * epsilon)
+    
+    return derivative
 
 
 variable_count = 1
