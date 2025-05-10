@@ -39,6 +39,8 @@ dest = sys.argv[2]
 try:
     for file in files_to_move:
         print(f"Moving file : ", file)
+        print(os.path.join(grandparent_path, source, file))
+        print(os.path.join(grandparent_path, dest, file))
         shutil.copy(
             os.path.join(grandparent_path, source, file),
             os.path.join(grandparent_path, dest, file),

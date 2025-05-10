@@ -31,6 +31,7 @@ class SGD(Optimizer):
                 continue
             if hasattr(p.value, "derivative"):
                 if p.value.derivative is not None:
+                    # print('   derivative: ', self.lr * p.value.derivative)
                     p.update(Scalar(p.value.data - self.lr * p.value.derivative))
             elif hasattr(p.value, "grad"):
                 if p.value.grad is not None:
