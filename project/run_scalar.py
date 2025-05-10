@@ -103,6 +103,7 @@ class ScalarTrain:
                     correct += 1 if out.data < 0.5 else 0
                 loss = -prob.log()
                 (loss / data.N).backward()
+                # loss.backward()
                 total_loss += loss.data
 
             losses.append(total_loss)
@@ -117,7 +118,7 @@ class ScalarTrain:
 
 if __name__ == "__main__":
     PTS = 50
-    HIDDEN = 2
+    HIDDEN = 3
     RATE = 0.5
     data = minitorch.datasets["Simple"](PTS)
     ScalarTrain(HIDDEN).train(data, RATE)
