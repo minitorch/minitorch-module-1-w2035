@@ -159,7 +159,7 @@ class Sigmoid(ScalarFunction):
     def backward(ctx: Context, d_output: float) -> float:
         # TODO: Implement for Task 1.4.
         (ret, ) = ctx.saved_values
-        return ret * (1-ret)
+        return ret * (1-ret) * d_output
 
 
 class ReLU(ScalarFunction):

@@ -69,9 +69,7 @@ def max(x :float, y :float):
     return y
 
 def is_close(x:float, y:float):
-    if abs(x-y) < 1e-2:
-        return True
-    return False
+    return math.isclose(x, y, abs_tol=1e-2)
 
 def sigmoid(x: float):
     if x >= 0:
